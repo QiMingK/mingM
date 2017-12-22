@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+  <package name="student" extends="struts-default" namespace="/" >
+   	 <action name="queryall"  class="com.chinasofti.action.StudentAction" method="queryAll">
+    		<result name="success">/queryall.jsp</result>
+    </action> 
+    <action name="queryOne"  class="com.chinasofti.action.StudentAction" method="queryOne">
+    		<result name="success" type="chain">queryAll</result>
+    </action> 
+     <action name="delete"  class="com.chinasofti.action.StudentAction" method="delete">
+    		<result name="success" type="chain">queryAll</result>
+    		<result name="error">error.jsp</result>
+    </action> 
+    <action name="add"  class="chinasofti.action.UserAction" method="add">
+    		<result name="success">/WEB-INF/view/add.jsp</result>
+    </action> 
+     <action name="addUser"  class="chinasofti.action.UserAction" method="addUser">
+    		<result name="success" type="chain">queryAll</result>
+    </action> 
+     
+      <action name="update"  class="chinasofti.action.UserAction" method="update">
+    		<result name="success">/WEB-INF/view/updateUser.jsp</result>
+    </action> 
+     <action name="updateUser"  class="chinasofti.action.UserAction" method="updateUser">
+    		<result name="success" type="chain">queryAll</result>
+    </action>
+    </package>
+</struts> 
